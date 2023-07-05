@@ -10,49 +10,116 @@
 // hp - 100
 // str - 10
 // def - 15
-let Jugador;
-let hp = 100;
-let str = 20;
-let def = 8;
+let Jugador ="";
 
-let Enemigo
-let hp2 = 100;
-let str2 = 10;
-let def2 = 15;
+// let hp = 100;
+// let str = 20;
+// let def = 8;
+
+// let Enemigo
+// let hp2 = 100;
+// let str2 = 10;
+// let def2 = 15;
 
 // Podéis probar vuestros propios valores si queréis.
 
 // Crear un objeto llamado habilidades con la siguiente estructura:
-// {
+// let Object = {
 //     health:3,
 //     boost:2,
 //     leech:50,
 //     fireBall:24,
 //     ironBody:8
 //    }
-let Object = {
+let habilidades = {
     health:3,
     boost:2,
     leech:50,
     fireBall:24,
     ironBody:8
-   }
+  }
 
 // Crear un array con los nombres de tus compañeros (strings).
 let myFriends = ["Santiago","Javier","Otniel","Morales","Oscar"]
 // Crear un array con los nombres de los profesores (strings).
+let enemys = ["Ángel","Marcos","Pedro","Daniel","Millard"]
 
 // console.log(`-------------------------------------------------`);
 // Crear una función para comenzar el juego.
+// Tened en cuenta que a lo mejor es posible que quizás podáis llegar a necesitar en un caso muy muy extremo alguna otra variable.
+ 
+// mi otra Variable
+ 
+// let anotherVar = ""
 
-// Haz una función para crear a tu personaje y dentro de ella crea un objeto con la siguiente estructura:
+  function StarGame(){
+
+
+    
+    function Oscar(defensa,salud,strong){
+      min = 0;
+      max = 5;
+      let  result = Math.random()*(max -min)+min;
+      result = parseInt(result);
+      let nombre = myFriends[result];
+
+      let Oscar = {
+        name :nombre ,
+        defensa :defensa ,
+        salud :salud ,
+        strong :strong ,
+      }
+      
+      return Oscar
+    }
+    let salud = prompt("introduce el valor de salud que desa darle a tu personaje");
+    let fuerza = prompt("introduce el valor de fuerza que desa darle a tu personaje");
+    let defensa = prompt("introduce el valor defensa que desa darle a tu personaje");
+  
+      Oscar(salud,fuerza,defensa);
+      console.log(Oscar(salud,fuerza,defensa));
+      
+
+
+      function profes(){
+        min = 0;
+        max = 5;
+        let  result = Math.random()*(max -min)+min;
+        result = parseInt(result);
+        let nombre = enemys[result];
+         
+        let salud2 = prompt("introduce el valor de salud que desa darle a tu Enemigo");
+        let fuerza3 = prompt("introduce el valor de fuerza que desa darle a tu Enemigo");
+        let defensa4 = prompt("introduce el valor defensa que desa darle a tu Enemigo");
+      
+        let Enemys = {
+          name : nombre ,
+          defensa :defensa4 ,
+          salud : salud2 ,
+          fuerza : fuerza3 ,
+        }
+      
+        
+        return Enemys
+      }
+
+      
+      console.log(profes());
+
+      // profes()
+      
+
+      
+      // Haz una función para crear a tu personaje y dentro de ella crea un objeto con la siguiente estructura:
+}
+StarGame();
 
 // · Hacer un random para coger una de las posiciones del array de nombres.
 // · Filtrar el array de nombres a otro para que solo contenga el de la posición aleatoria.
 // · Ese será el nombre que deberá aparecer.
 
 
-// function Shark(){
+// function (){
 
 // }
 // Math.random;
