@@ -2,25 +2,19 @@
 
 // Los valores con los que funciona son los siguientes:
 
-// Jugador
-// hp - 100
-// str - 20
-// def - 8
-// Enemigo
-// hp - 100
-// str - 10
-// def - 15
-let Jugador ="";
 
-// let hp = 100;
-// let str = 20;
-// let def = 8;
 
-// let Enemigo
-// let hp2 = 100;
-// let str2 = 10;
-// let def2 = 15;
 
+
+// console.log(`-------------------------------------------------`);
+// Crear una función para comenzar el juego.
+// Tened en cuenta que a lo mejor es posible que quizás podáis llegar a necesitar en un caso muy muy extremo alguna otra variable.
+// Haz una función para crear a tu personaje y dentro de ella crea un objeto con la siguiente estructura:
+
+// · Hacer un random para coger una de las posiciones del array de nombres.
+// · Filtrar el array de nombres a otro para que solo contenga el de la posición aleatoria.
+// · Ese será el nombre que deberá aparecer.
+ 
 // Podéis probar vuestros propios valores si queréis.
 
 // Crear un objeto llamado habilidades con la siguiente estructura:
@@ -31,7 +25,7 @@ let Jugador ="";
 //     fireBall:24,
 //     ironBody:8
 //    }
-let habilidades = {
+let habilitys = {
     health:3,
     boost:2,
     leech:50,
@@ -40,98 +34,120 @@ let habilidades = {
   }
 
 // Crear un array con los nombres de tus compañeros (strings).
-let myFriends = ["Santiago","Javier","Otniel","Morales","Oscar"]
+let Sharks = ["Santiago","Javier","Otniel","Morales","Oscar"]
 // Crear un array con los nombres de los profesores (strings).
-let enemys = ["Ángel","Marcos","Pedro","Daniel","Millard"]
+let fish = ["Ángel","Marcos","Pedro","Daniel","Millard"]
 
-// console.log(`-------------------------------------------------`);
-// Crear una función para comenzar el juego.
-// Tened en cuenta que a lo mejor es posible que quizás podáis llegar a necesitar en un caso muy muy extremo alguna otra variable.
- 
 // mi otra Variable
- 
 // let anotherVar = ""
 
-  function StarGame(){
-
-
-    
-    function Oscar(defensa,salud,strong){
+  function assasinSharkInit(){
+    let sharksHungry = {} 
+    function sharkAverage(hp,defens,strong){
       min = 0;
       max = 5;
       let  result = Math.random()*(max -min)+min;
       result = parseInt(result);
-      let nombre = myFriends[result];
+      let nombre = Sharks[result];
 
-      let Oscar = {
+      sharksHungry = {
         name :nombre ,
-        defensa :defensa ,
-        salud :salud ,
+        defensa :defens ,
+        salud :hp ,
         strong :strong ,
       }
       
-      return Oscar
+      return sharksHungry
     }
-    let salud = prompt("introduce el valor de salud que desa darle a tu personaje");
-    let fuerza = prompt("introduce el valor de fuerza que desa darle a tu personaje");
-    let defensa = prompt("introduce el valor defensa que desa darle a tu personaje");
+        
+        let hp = 100;
+        let strong = 20;
+        let defens = 8;
+    // let hp = prompt("introduce el valor de salud que desa darle a tu personaje");
+    // let strong = prompt("introduce el valor de fuerza que desa darle a tu personaje");
+    // let defens = prompt("introduce el valor defensa que desa darle a tu personaje");
+    // let Jugador ="";
+        
   
-      Oscar(salud,fuerza,defensa);
-      console.log(Oscar(salud,fuerza,defensa));
-      
-
-
-      function profes(){
+      sharkAverage(hp,defens,strong);
+      // console.log(sharkAverage(hp,defens,strong));
+      let tigerFish = {};
+      function fishesBad(){
         min = 0;
         max = 5;
         let  result = Math.random()*(max -min)+min;
         result = parseInt(result);
-        let nombre = enemys[result];
-         
-        let salud2 = prompt("introduce el valor de salud que desa darle a tu Enemigo");
-        let fuerza3 = prompt("introduce el valor de fuerza que desa darle a tu Enemigo");
-        let defensa4 = prompt("introduce el valor defensa que desa darle a tu Enemigo");
-      
-        let Enemys = {
-          name : nombre ,
-          defensa :defensa4 ,
-          salud : salud2 ,
-          fuerza : fuerza3 ,
-        }
-      
+        let nombre =  fish[result];        
         
-        return Enemys
-      }
+        // let hp2 = prompt("introduce el valor de salud que desa darle a tu Enemigo");
+        // let strong3 = prompt("introduce el valor de fuerza que desa darle a tu Enemigo");
+        // let defens4 = prompt("introduce el valor defensa que desa darle a tu Enemigo");
+        
+        let hp2 = 100;
+        let strong3 = 10;
+        let defens2 = 15;
 
-      
-      console.log(profes());
+         tigerFish = {
+          name : nombre ,
+          defensa :defens2 ,
+          salud : hp2 ,
+          fuerza : strong3 ,
+        }
+        
+        return tigerFish
+      }      
+      fishesBad();
 
       // profes()
+      //van haber dos.    
+      // function attackEnemy (){
       
+      // 
+      function attackfulTigerFish(sharkAverage,tigerFish){
+                              //10             tiburon: 8    
+        let resta = tigerFish.fuerza - sharkAverage.defensa;
 
+       sharkAverage.salud=sharkAverage.salud -Math.abs(resta);
+        
+
+
+        console.log(sharkAverage);
+        console.log(tigerFish);
+
+        
+      }
+        
+        attackfulTigerFish(sharksHungry,tigerFish)
+
+          
+        
+        
+        
+      function atackfullShark(sharkAverage,tigerFish){
+
+        let resta2 = sharkAverage.strong - tigerFish.defensa;
+         tigerFish.salud = tigerFish.salud - resta2;
+
+        console.log(sharkAverage);
+        console.log(tigerFish);
+
+        if(tigerFish.salud <= 0){
+
+        }   
+
+
+      }
+
+      atackfullShark(sharksHungry,tigerFish);
+      // let  attack = personaje.salud - Enemys.fuerza
+      // console.log(attack);
       
-      // Haz una función para crear a tu personaje y dentro de ella crea un objeto con la siguiente estructura:
-}
-StarGame();
+    }
+    assasinSharkInit();
 
-// · Hacer un random para coger una de las posiciones del array de nombres.
-// · Filtrar el array de nombres a otro para que solo contenga el de la posición aleatoria.
-// · Ese será el nombre que deberá aparecer.
+    
+    
 
-
-// function (){
-
-// }
-// Math.random;
-
-// Name: value
-// Pedir los datos por un prompt()
-// hp: value
-// str: value
-// def: value
-// haz un log con ese objeto.
-
-// Repite los dos pasos anteriores para crear el objeto del enemigo. Recuerda usar el array de nombres del enemigo.
 
 
 // console.log(`----------------------------------------------`);
@@ -174,7 +190,6 @@ StarGame();
 
 // Si no está, hacer un alert que diga que no existe es habilidad.
 // Llamar a la función de ataque del jugador.
-
 
 
 
