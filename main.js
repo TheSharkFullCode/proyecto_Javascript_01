@@ -14,7 +14,7 @@
 // · Hacer un random para coger una de las posiciones del array de nombres.
 // · Filtrar el array de nombres a otro para que solo contenga el de la posición aleatoria.
 // · Ese será el nombre que deberá aparecer.
- 
+
 // Podéis probar vuestros propios valores si queréis.
 
 // Crear un objeto llamado habilidades con la siguiente estructura:
@@ -26,127 +26,205 @@
 //     ironBody:8
 //    }
 let habilitys = {
-    health:3,
-    boost:2,
-    leech:50,
-    fireBall:24,
-    ironBody:8
-  }
+  health: 3,
+  boost: 2,
+  leech: 50,
+  fireBall: 24,
+  ironBody: 8
+}
 
 // Crear un array con los nombres de tus compañeros (strings).
-let Sharks = ["Santiago","Javier","Otniel","Morales","Oscar"]
+let Sharks = ["Santiago", "Javier", "Otniel", "Morales", "Oscar"]
 // Crear un array con los nombres de los profesores (strings).
-let fish = ["Ángel","Marcos","Pedro","Daniel","Millard"]
+let fish = ["Ángel", "Marcos", "Pedro", "Daniel", "Millard"]
 
-// mi otra Variable
-// let anotherVar = ""
 
-  function assasinSharkInit(){
-    let sharksHungry = {} 
-    function sharkAverage(hp,defens,strong){
-      min = 0;
-      max = 5;
-      let  result = Math.random()*(max -min)+min;
-      result = parseInt(result);
-      let nombre = Sharks[result];
+function assasinSharkInit() {
+  let sharksHungry = {};
+  let SecondLive = 1;
+  // let endGame = "";/*------------------------------------------->*/
+  let liveTiger2 = 0;
+  function sharkAverage(hp, defens, strong) {
+    min = 0;
+    max = 5;
+    let result = Math.random() * (max - min) + min;
+    result = parseInt(result);
+    let nombre = Sharks[result];
 
-      sharksHungry = {
-        name :nombre ,
-        defensa :defens ,
-        salud :hp ,
-        strong :strong ,
-      }
-      
-      return sharksHungry
+    sharksHungry = {
+      name: nombre,
+      defensa: defens,
+      salud: hp,
+      strong: strong,
     }
-        
-        let hp = 100;
-        let strong = 20;
-        let defens = 8;
-    // let hp = prompt("introduce el valor de salud que desa darle a tu personaje");
-    // let strong = prompt("introduce el valor de fuerza que desa darle a tu personaje");
-    // let defens = prompt("introduce el valor defensa que desa darle a tu personaje");
-    // let Jugador ="";
-        
-  
-      sharkAverage(hp,defens,strong);
-      // console.log(sharkAverage(hp,defens,strong));
-      let tigerFish = {};
-      function fishesBad(){
-        min = 0;
-        max = 5;
-        let  result = Math.random()*(max -min)+min;
-        result = parseInt(result);
-        let nombre =  fish[result];        
-        
-        // let hp2 = prompt("introduce el valor de salud que desa darle a tu Enemigo");
-        // let strong3 = prompt("introduce el valor de fuerza que desa darle a tu Enemigo");
-        // let defens4 = prompt("introduce el valor defensa que desa darle a tu Enemigo");
-        
-        let hp2 = 100;
-        let strong3 = 10;
-        let defens2 = 15;
 
-         tigerFish = {
-          name : nombre ,
-          defensa :defens2 ,
-          salud : hp2 ,
-          fuerza : strong3 ,
-        }
+    return sharksHungry
+  }
+
+  let hp = 50;
+  let defens = 8;
+  let strong = 20;
+  // let hp = prompt("introduce el valor de vida que desa darle a tu personaje");
+  // let strong = prompt("introduce el valor de ataque que desa darle a tu personaje");
+  // let defens = prompt("introduce el valor defensa que desa darle a tu personaje");
+  // let Jugador ="";
+
+
+  sharkAverage(hp, defens, strong);
+  // console.log(sharkAverage(hp,defens,strong));
+  /*
+  *
+  */
+  let tigerFish = {};
+  function fishesBad() {
+    min = 0;
+    max = 5;
+    let result = Math.random() * (max - min) + min;
+    result = parseInt(result);
+    let nombre = fish[result];
+
+    // let hp2 = prompt("introduce el valor de salud que desa darle a tu Enemigo");
+    // let strong3 = prompt("introduce el valor de fuerza que desa darle a tu Enemigo");
+    // let defens4 = prompt("introduce el valor defensa que desa darle a tu Enemigo");
+    let hp2 = 50;
+    let defens2 = 15;
+    let strong3 = 10;
+    
+    tigerFish = {
+      name: nombre,
+      defensa: defens2,
+      salud: hp2,
+      fuerza: strong3,
+    }
+
+    liveTiger2 = tigerFish.salud; //
+
+    return tigerFish
+  }
+  fishesBad();
+
+  /*--------Ataque del Enemy------TigerFish---------------------->*/
+  function attackfulTigerFish(sharkAverage, tigerFish) {
+    
+    //100             tiburon: 8   
+    if( sharksHungry.salud > 0){
+
+      let liveShark =  tigerFish.fuerza - sharksHungry.defensa 
+      sharksHungry.salud = sharksHungry.salud - liveShark;
+      atackfullShark(sharksHungry,tigerFish)
+
+    // console.log(tigerFish); /*----aqui tengo un bucle--esto lo estoy mandando a cero----->*/
+
+    }else if(SecondLive <= 1){
+
+      console.log('te han derrotado');
+      
+    }else{
+      // sharkAverage = false;
+      // console.log('entras en tu segunda fase');
+    }
+    console.log(sharksHungry,tigerFish);
+
+
+  }
+
+  attackfulTigerFish(sharkAverage, tigerFish)
+  /*
+  *
+  * 
+  * */
+
+  /*---------Entrando en el ataque de mi enemigo------------------>*/
+  function atackfullShark(sharksHungry, tigerFish) {
+
+    if (tigerFish.salud > 0) {
+      
+      let livetigerFishes = sharksHungry.strong - tigerFish.defensa
+      tigerFish.salud = tigerFish.salud - livetigerFishes
+
+      attackfulTigerFish(sharksHungry, tigerFish);
+      
+    } else if (SecondLive === 1) {
+      
+      for (let i = 0; i < liveTiger2*2; i++) {
+
+        tigerFish.salud++;               
+        // console.log(tigerFish.salud);
         
-        return tigerFish
       }      
-      fishesBad();
+        // alert("the player to be in second live y tienes la opción de elegir entre obtener el triple de vida o un boost de fuerza y defensa")
+        // habilitysSelected = prompt("introduce una habilidad");
 
-      // profes()
-      //van haber dos.    
-      // function attackEnemy (){
+      // let habilitys = {
+      //   health: 3,
+      //   boost: 2,
+      //   leech: 50,
+      //   fireBall: 24,
+      //   ironBody: 8
+      // }
+
+      habilitysSelected = "health"
+
+      //console.log(habilitys[habilitysSelected]);
+        //aqui para acceder a mi objeto tuve que poner el nombre de mi objeto mas en corchete su valor .. porque es un string
+        if(habilitysSelected == "health"){
+            
+          console.log(`has seleccionado`+""+habilitys[habilitysSelected]);
+          dupliValor = habilitys[habilitysSelected];
+
+                tigerFish.salud *= habilitys[habilitysSelected]
+
+            // console.log();
+            
+        }else {
+          console.log("Estas usando mal tu habilidad");
+        }
+
+
+
+      // Object.hasOwn(habilitys);
       
-      // 
-      function attackfulTigerFish(sharkAverage,tigerFish){
-                              //10             tiburon: 8    
-        let resta = tigerFish.fuerza - sharkAverage.defensa;
+      
+      tigerFish.fuerza *=1.75    
+        SecondLive=2;
 
-       sharkAverage.salud=sharkAverage.salud -Math.abs(resta);
-        
-
-
-        console.log(sharkAverage);
+        console.log(`The player to be in seconLive`);   
         console.log(tigerFish);
 
-        
-      }
-        
-        attackfulTigerFish(sharksHungry,tigerFish)
-
-          
-        
-        
-        
-      function atackfullShark(sharkAverage,tigerFish){
-
-        let resta2 = sharkAverage.strong - tigerFish.defensa;
-         tigerFish.salud = tigerFish.salud - resta2;
-
-        console.log(sharkAverage);
-        console.log(tigerFish);
-
-        if(tigerFish.salud <= 0){
-
-        }   
-
-
-      }
-
-      atackfullShark(sharksHungry,tigerFish);
-      // let  attack = personaje.salud - Enemys.fuerza
-      // console.log(attack);
       
+      attackfulTigerFish(sharksHungry, tigerFish);
+
     }
-    assasinSharkInit();
+
+
 
     
-    
+      
+    //   //aqui haria falta una condicion mas
+    // } else if (endGame == true) {
+    //   console.log('te han derrotado');
+
+    // }
+
+
+    // habilitys = prompt("introduce una de las siguientes habilidades:"+'boost'+'helty');
+    // habilitys = boosts;
+
+
+
+
+
+
+  }
+
+  atackfullShark(sharksHungry, tigerFish);
+
+
+}
+assasinSharkInit();
+
+
+
 
 
 
